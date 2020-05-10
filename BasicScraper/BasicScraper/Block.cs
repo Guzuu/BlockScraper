@@ -9,6 +9,9 @@ namespace BasicScraper
     public class Block
     {
         public string Color { get; set; }
-        public string Rgb { get; set; }
+        public string R { get; set; }
+        public string G { get; set; }
+        public string B { get; set; }
+
     }
 }

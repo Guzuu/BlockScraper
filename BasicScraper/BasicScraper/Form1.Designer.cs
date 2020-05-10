@@ -43,6 +43,7 @@
             this.textBoxBrowserBar.Name = "textBoxBrowserBar";
             this.textBoxBrowserBar.Size = new System.Drawing.Size(543, 29);
             this.textBoxBrowserBar.TabIndex = 0;
+            this.textBoxBrowserBar.Text = "https://trove.fandom.com/wiki/Blocks#zzzz";
             // 
             // buttonScrape
             // 

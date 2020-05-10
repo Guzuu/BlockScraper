@@ -23,18 +23,24 @@ namespace BasicScraper
         {
             var web = new HtmlWeb();
             var doc = web.Load(page);
+            bool lol = false;
 
             var Blocks = doc.DocumentNode.SelectNodes("//div[@id='mw-content-text']/table/tr");
 
             foreach(var blocks in Blocks)
             {
                 var color = blocks.SelectSingleNode(".//td[1]/a[2]")?.InnerText ?? "";
-                var rgb = blocks.SelectSingleNode(".//td[2]")?.InnerText.Substring(0, 13).Replace(",", "") ?? "";
+                var R = blocks.SelectSingleNode(".//td[2]")?.InnerText.Substring(0, 3) ?? "";
+                var G = blocks.SelectSingleNode(".//td[2]")?.InnerText.Substring(5, 3) ?? "";
+                var B = blocks.SelectSingleNode(".//td[2]")?.InnerText.Substring(10, 3) ?? "";
 
-                Console.WriteLine(color + "\n" + rgb);
+                if (color == "Glowing Blue") lol = true;
 
-                _entries.Add(new Block { Color = color, Rgb = rgb });
-
+                if (lol)
+                {
+                    Console.WriteLine(color + "\n" + R + " " + G + " " + B);
+                    _entries.Add(new Block { Color = color, R = R, G = G, B = B });
+                }
                 if (color == "Glowing White") break;
             }
         }
