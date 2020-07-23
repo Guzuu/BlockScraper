@@ -39,7 +39,7 @@ namespace BasicScraper
 
         private void buttonToJson_Click(object sender, EventArgs e)
         {
-            string output = JsonConvert.SerializeObject(scraper.Entries);
+            string output = JsonConvert.SerializeObject(scraper.Entries, Formatting.Indented);
             saveFileDialog1.ShowDialog();
 
             File.WriteAllText(saveFileDialog1.FileName, output);
